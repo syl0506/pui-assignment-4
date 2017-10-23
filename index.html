@@ -1,1 +1,384 @@
-<!-- fill me in!-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Muddy Paw Adventure Gear</title>
+
+<!-- styles-->
+<link rel = "stylesheet" type = "text/css" href = "style.css">
+
+<!-- fonts -->
+<link href="https://linotype.com/1245613/avenir-family.html" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+<script type="text/javascript" src="index.js"></script>
+</head>
+<body onload="OnInit()">
+
+	<div class="header" >
+		<ul id = "nav">
+			<li><a href="javascript:void(0);" onClick="OnClickPannel('cat')">FOR CATS</a></li>
+			<li><a href="javascript:void(0);" onClick="OnClickPannel('dog')">FOR DOGS</a></li>
+			<li><a href="javascript:void(0);" onClick="OnClickPannel('Home')">
+				<img id ="logoImg" src="images/logo.png"  />
+			</a></li>
+			<li><a href="javascript:void(0);" onClick="OnClickPannel('location')">LOCATION</a></li>
+
+            <li><a href="javascript:void(0);" onClick="OnClickPannel('myCart')">MY CART</a></li>
+            <span id = "itemCount">0</span>
+
+		</ul>
+	 </div>
+
+	<!-- Landing page -->
+	 <div id ="landing" class="panel" >
+	 <!--image : https://caninespirit.com.au/products/ruffwear-approach-pack-dog-pack-->
+		<img src="images/background.png" width=100% />
+		<div id ="mainText">
+            <h1> TAKE AN</br> <span style="color: #FF8D48"> ADVENTURE </span> </br> WITH YOUR </br> BUDDY</h1>
+			 <button id = "mainBtn" onclick="javascript:void(0)">SHOP NOW</button>
+
+        </div>
+	 </div>
+
+	<!-- For cats -->
+	<div id ="forCats" class="panel">
+	<!--Cat_image : https://thumbs.dreamstime.com/t/group-cats-26433825.jpg-->
+
+		<img src="images/ForCats.png" width=100% />
+
+		<div class="itemContainer">
+			<table class ="itemTable" cellpadding="10">
+				<tr>
+					<td>
+						<div class="itemBox">
+						<!--image : https://www.gfpet.com/coolfresh-1/cat-nylon-harness-->
+							<img src="images/harness.png" />
+							<p><br></p>
+							<h3>BODY HARNESS</h3>
+							<h3>$ 12.99</h3>
+							<br>
+							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+						</div>
+					</td>
+					<td>
+						<div class="itemBox">
+						<!--image : https://www.terapeak.com/worth/whistle-gps-pet-tracker-dog-cat-tracker-collar-attachment/182473902185/-->
+							<img src="images/gpstracker.png" />
+							<p><br></p>
+							<h3>GPS TRACKER</h3>
+							<h3>$ 40.99</h3>
+							<br>
+							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+						</div>
+					</td>
+					<td>
+						<div class="itemBox">
+						<!--image : https://ae01.alicdn.com/kf/HTB10psQOXXXXXafXVXXq6xXFXXXs/Kids-Cartoon-font-b-Cat-b-font-Stainless-Steel-font-b-Bottle-b-font-font-b.jpg-->
+							<img src="images/water.png" />
+							<p><br></p>
+							<h3>WATER BOTTLE</h3>
+							<h3>$ 12.99</h3>
+							<br>
+							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+						</div>
+					</td>
+					<td>
+						<div class="itemBox">
+						<!--image : http://www.allaboutsnouts.com/shop/training/popware-pooch-pouch-treat-holder-purple-pink-green-blue/-->
+							<img src="images/foodpouch.png" />
+							<p><br></p>
+							<h3>FOOD POUCH</h3>
+							<h3>$ 9.99</h3>
+							<br>
+							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+						</div>
+					</td>
+
+				<tr>
+			</table>
+		</div>
+	 </div>
+
+	<!-- For dogs -->
+	<div id ="forDogs" class="panel">
+	<!--Dog_image : https://www.jimsdogwash.net.au/images/slider/group%20of%20dogs.jpg-->
+		<img src="images/ForDogs.png" width=100% />
+
+		<div class="itemContainer">
+			<table class ="itemTable" cellpadding="10">
+				<tr>
+					<td>
+						<div class="itemBox">
+						<!--image : https://ae01.alicdn.com/kf/HTB1OumGKVXXXXc.XFXXq6xXFXXXK/Dog-Supplies-Nylon-K9-Pet-Dogs-Harness-Collar-high-quality-pet-products-harnais-pour-chie-for.jpg_640x640.jpg-->
+							<img src="images/harness_dog.png" />
+							<p><br></p>
+							<h3>NYLON HARNESS</h3>
+							<h3>$ 12.99</h3>
+							<br>
+							<button id="detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+
+						</div>
+					</td>
+					<td>
+						<div class="itemBox">
+						<!--image : https://www.terapeak.com/worth/whistle-gps-pet-tracker-dog-cat-tracker-collar-attachment/182473902185/-->
+							<img src="images/gpstracker.png" />
+							<p><br></p>
+							<h3>GPS TRACKER</h3>
+							<h3>$ 12.99</h3>
+							<br>
+							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+						</div>
+					</td>
+					<td>
+						<div class="itemBox">
+						<!--image : https://www.chewy.com/h2o4k9-stainless-steel-dog-water/dp/136637?utm_source=google-product&utm_medium=cpc&utm_campaign=hg&utm_content=H2O4K9&utm_term=&gclid=EAIaIQobChMIx-zY5_rX1gIVkQFpCh3YmwFBEAQYByABEgIq4_D_BwE&gclsrc=aw.ds-->
+							<img src="images/water_dog.png" />
+							<p><br></p>
+							<h3>WATER BOTTLE</h3>
+							<h3>$ 12.99</h3>
+							<br>
+							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+						</div>
+					</td>
+					<td>
+						<div class="itemBox">
+						<!--image : http://www.allaboutsnouts.com/shop/training/popware-pooch-pouch-treat-holder-purple-pink-green-blue/-->
+							<img src="images/foodpouch.png" />
+							<p><br></p>
+							<h3>FOOD POUCH</h3>
+							<h3>$ 12.99</h3>
+							<br>
+							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+						</div>
+					</td>
+
+				<tr>
+			</table>
+		</div>
+	 </div>
+
+	 	 	<!-- For Store -->
+	<div id ="location" class="panel">
+		<img src=" images/store_location.png" width=100% />
+		<div class="itemContainer">
+			<table class ="itemTable" cellpadding="10">
+
+			<tr>
+				<td width="50%" style="text-align:right">
+					<img src="images/store.jpg" width=100% />
+					<!--image : http://altdaily.com/wp-content/uploads/2016/03/Muddy-Paws-Downtown.jpg-->
+				</td>
+
+				<td width="50%" id="infoBox">
+					<h2>muddypaw Downtown</h2><br><br>
+					<h4>745 Forward Avenue, Pittsburgh, PA, 15232
+					<br><br>412-234-4212
+					<br><br>Monday through Saturday<br>9:00am - 9:00pm</h4>
+				</td>
+			</tr>
+
+            </table>
+        </div>
+    </div>
+
+
+
+	<!-- For details -->
+	<div id ="details" class="panel">
+		<table class ="detailTable">
+
+			<tr style="text-align:center">
+				<TD colspan=2>
+					<P>
+					Home / For Cat / Body Harness
+					</P>
+				</TD>
+			</tr>
+
+			<tr>
+				<td width="50%" style="text-align:right">
+					<img id = "productImg" src="images/Strawberry.png" width=100% />
+				</td>
+
+				<td width="50%" id="infoBox">
+					<h2>BODY HARNESS</h2>
+					<h4>$ 12.99</h4>
+
+					<h4><br>Choose Size</h4>
+
+					<div style="display:inline-block; vertical-align: middle; ">
+						<button class="sizeButton">Tiny</button>
+						<button class="sizeButton">S</button>
+						<button class="sizeButton">M</button>
+						<button class="sizeButton">L</button>
+					</div>
+
+
+					<h4><br>Choose Color<br></h4>
+
+					<div style="display:inline-block; vertical-align: middle;">
+						<button id = "Strawberry" class="colorButton" style=" background-color:#F84445;"></button>
+						<button id = "Blackberry" class="colorButton" style=" background-color:black;"></button>
+						<button id = "Crazyberry" class="colorButton" style=" background-color:#AD36FF;"></button>
+						<button id = "Camouflage" class="colorButton" style=" background-color:#2F7300;"></button>
+						<button id = "Night Moon" class="colorButton" style=" background-color:#160093;"></button>
+						<button id = "Fire Orange" class="colorButton" style=" background-color:#FF5C00;"></button>
+                        <br><br>
+                    </div>
+
+					<h5 id = "colorText">Strawberry</h5>
+
+					<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
+
+				</td>
+			</tr>
+
+			<tr style="text-align:left">
+				<TD colspan=2>
+					<div id="dscBox">
+
+						<h2>Description</h2>
+						<P>
+						<br>
+						Lead your cat on a stress-free walk with the PetSafe Easy Walk Harness. When your cat pulls, the Easy Walk Harness uses gentle pressure on the chest and shoulder blades to steer your dog to the side and refocus his attention on you. The chest strap rests low on the breastbone instead of the throat to eliminate choking, coughing and gagging.<br><br>
+
+						- Discourages your cat from pulling, lunging and jumping while on leash<br>
+						- Low chest strap prevents choking, coughing and gagging<br>
+						- 4 adjustment points provide maximum comfort and reliable fit<br>
+						- Made from soft, but strong, nylon; Quick snap buckles located on belly straps for easy on and off<br>
+						- Includes detailed training and fitting guide; Complementary color on belly strap to easily identify top and bottom
+						</P>
+					</div>
+				</TD>
+			</tr>
+		</table>
+
+		<div class="itemContainer">
+			<table class ="itemTable" cellpadding="10">
+
+				<tr>
+				<td>
+				<h2>SEE MORE PRODUCTS</h2>
+				</td>
+				</tr>
+				<tr>
+					<td>
+
+						<div class="itemBox">
+							<img src="images/harness_dog.png" />
+							<p><br></p>
+							<h3>NYLON HARNESS</h3>
+							<h3>$ 12.99</h3>
+							<br>
+							<button id="detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+
+						</div>
+					</td>
+					<td>
+						<div class="itemBox">
+							<img src="images/gpstracker.png" />
+							<p><br></p>
+							<h3>GPS TRACKER</h3>
+							<h3>$ 12.99</h3>
+							<br>
+							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+						</div>
+					</td>
+					<td>
+						<div class="itemBox">
+							<img src="images/water_dog.png" />
+							<p><br></p>
+							<h3>WATER BOTTLE</h3>
+							<h3>$ 12.99</h3>
+							<br>
+							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+						</div>
+					</td>
+					<td>
+						<div class="itemBox">
+							<img src="images/foodpouch.png" />
+							<p><br></p>
+							<h3>FOOD POUCH</h3>
+							<h3>$ 12.99</h3>
+							<br>
+							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+						</div>
+					</td>
+
+				<tr>
+			</table>
+		</div>
+	</div>
+
+
+
+     <!-- For Cart -->
+    <div id ="myCart" class="panel">
+        <img src=" images/mycart.png" width=100%>
+        <div class="cartContainer">
+            <table id ="cartTable" cellpadding="10" width = 90% style = "display : none">
+
+            <tr>
+                <td width = "15%">ADDED ITEM</td>
+                <td></td>
+                <td>SIZE</td>
+                <td>COLOR</td>
+                <td>QUANTITY</td>
+                <td>PRICE</td>
+                <td width="11%"></td>
+            </tr>
+
+            </table>
+            <img id = "emptyCart" src=" images/emptyCart.png" width=60% style = "display : none">
+        </div>
+        <div>
+            <button id="shoppingBtn" onclick="javascript:void(0)" style = "display : none">CONTINUE SHOPPING</button>
+            <button id="checkoutBtn" onclick="javascript:void(0)" style = "display : none">CHECKOUT</button>
+        </div>
+    </div>
+
+	<div class='footer'>
+		<div id="subscriptionBox" style="float:left">
+			<div >
+				<h4>
+				SIGN UP FOR FUTURE PRODUCT UPDATES!
+				</h4>
+			</div>
+
+			<div >
+
+				<form style="margin-left=5%;">
+					<input type="text" name="LastName" value="Enter your email address" style ="width: 70%;"><input type="submit" value="Submit" >
+				</form>
+			</div>
+		</div>
+
+		<div class="extraInfo">
+			<ul id = "nav">
+				<li><p>CONNECT: </p></li>
+				<li><a href="javascript:void(0);"><img src="images/facebook.png" width="30px"></a></li>
+				<li><a href="javascript:void(0);"><img src="images/pinterest2.png" width="30px"></a></li>
+				<li><a href="javascript:void(0);"><img src="images/instagram.png" width="65px"></a></li>
+
+			</ul>
+		</div>
+
+		<div class="extraInfo">
+			<ul id = "nav">
+				<li><a href="javascript:void(0);">CONTACT</a></li>
+				<li><a href="javascript:void(0);">PRIVACY</a></li>
+				<li><a href="javascript:void(0);">TERMS</a></li>
+				<li><a href="javascript:void(0);">ACCESSIBLITY</a></li>
+			</ul>
+		</div>
+
+		<div id = "rights" style="text-align:center" >
+			<p>@ 2017 Muddy Paws adventure Gear Corporation. All Rights Reserved.</p>
+		</div>
+	</div>
+
+</body>
+
+
+</html>
