@@ -3,12 +3,16 @@
 on the website. */
 var focusedPanel;
 var totalItems= 0;
+var wishItemsNum = 0;
 var cartItems = [];
+var wishItems =[];
 var itemName;
 var currentColor = "Strawberry";
 var currentSize = "Tiny"
 var itemPrice = 0;
 var totalPrice = 0;
+
+
 
 
 function CurrentItem(itemName, color, size, price){
@@ -30,8 +34,23 @@ function addToCart(){
 }
 
 
+function addToWishList(){
+	wishItemsNum++;
+
+	document.getElementById("wishListCount").innerHTML = wishItemsNum;
+	document.getElementById("wishListCount").style.display = "block";
+
+	wishItems.push(new CurrentItem(itemName, currentColor, currentSize, itemPrice));
+}
+
+
+
+
 function OnInit(){
 	OnClickPannel("Details");
+	loadModal();
+
+
 }
 
 function HideAllPanel(){
@@ -84,6 +103,9 @@ function OnClickPannel(option){
 		var colorButtons = document.getElementsByClassName('colorButton');
 		var colorText = document.getElementById('colorText');
 		var selectedButton = document.getElementsByClassName('colorButton_s');
+		for (var i = 0; i < selectedButton.length; i++){
+				selectedButton[i].setAttribute('class', 'colorButton');
+			}
 		for (var i = 0; i < colorButtons.length; i++){
 			colorButtons[i].onclick = function(){
 				changeColorSize(this, selectedButton, colorText);
@@ -105,8 +127,17 @@ function OnClickPannel(option){
 
 
 		var sizeButtons = document.getElementsByClassName('sizeButton');
+
+
+		for (var i = 0; i<sizeButtons.length; i++){
+				sizeButtons[i].style.color = "#FF8D48";
+				sizeButtons[i].style.backgroundColor = "white";
+			}
+
 		sizeButtons[0].style.color = "white";
 		sizeButtons[0].style.backgroundColor = "#FF8D48";
+
+
 		for (var j = 0; j < sizeButtons.length; j++){
 			sizeButtons[j].onclick = function(){
 				changeSizeButton(this, sizeButtons);
@@ -156,7 +187,6 @@ function resetCart(cartTable){
 		continueBtn.style.display = "inline-block";
 		checkoutBtn.style.display = "inline-block";
 		deleteCart(cartTable);
-		console.log("car")
 		totalPrice = 0;
 		for (var i = 0; i < cartItems.length; i++){
 			createCart(i);
@@ -237,6 +267,122 @@ function addSubTotal(totalPrice){
 
 
 }
+function loadModal(){
+
+	var modal = document.getElementById('wishListModal');
+	var wishTable = document.getElementById('wishTable');
+
+	// Get the button that opens the modal
+	var wishBtn1 = document.getElementById("wishIcon");
+	var wishBtn2 = document.getElementById("wishListCount");
+
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks the button, open the modal
+	wishBtn1.onclick = function() {
+		modal.style.display = "block";
+		resetWishList(wishTable);
+
+
+	};
+
+	wishBtn2.onclick = function() {
+		modal.style.display = "block";
+		resetWishList(wishTable);
+
+
+	};
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	    modal.style.display = "none";
+	};
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	    if (event.target == modal) {
+	        modal.style.display = "none";
+	    }
+	};
+}
+
+function resetWishList(wishTable){
+
+	deleteWishCart(wishTable);
+
+    for(var i = 0; i<wishItems.length; i++){
+    	createWishList(i);
+}
+}
+
+function deleteWishCart(wishTable){
+	while(wishTable.rows.length>1){
+		wishTable.deleteRow(1);
+	}
+
+}
+
+function createWishList(index){
+	var wishTable = document.getElementById("wishTable");
+	var wishRow = wishTable.insertRow(index+1);
+	var itemImage = document.createElement('img');
+	var deleteButton = document.createElement('button');
+	deleteButton.setAttribute('content', 'test content');
+	deleteButton.setAttribute('class', 'btn');
+	deleteButton.innerHTML = 'X';
+	deleteButton.style.color = "#FF8D48";
+	deleteButton.style.fontSize = "20px";
+	deleteButton.style.border = "none";
+	deleteButton.style.width = "100px";
+	deleteButton.style.height = "100px";
+	deleteButton.style.backgroundColor = "white";
+
+	deleteButton.onclick = function(){deleteWishItems(index, wishTable)};
+
+	itemImage.src = "images/"+ wishItems[index].color + ".png"
+	itemImage.style.height = '150px';
+	itemImage.style.width =  '150px';
+
+	var itemI = wishRow.insertCell(0);
+	var itemN = wishRow.insertCell(1);
+	var itemS = wishRow.insertCell(2);
+	var itemC = wishRow.insertCell(3);
+	var itemQ = wishRow.insertCell(4);
+	var itemP = wishRow.insertCell(5);
+	var itemD = wishRow.insertCell(6);
+
+	itemI.appendChild(itemImage);
+	itemN.innerHTML = wishItems[index].itemName;
+	itemS.innerHTML = wishItems[index].size;
+	itemC.innerHTML = wishItems[index].color;
+	itemP.innerHTML = "$" + itemPrice;
+	itemD.appendChild(deleteButton);
+	itemD.style.textAlign = "right";
+
+}
+
+function deleteWishItems(index, wishTable){
+	wishItems.splice(index, 1);
+	resetWishList(wishTable);
+	wishItemsNum --;
+	if (wishItemsNum > 0){
+		document.getElementById("wishListCount").innerHTML = wishItemsNum;
+	}
+	else {
+		document.getElementById("wishListCount").style.display = "none";
+	}
+
+}
+
+function changeQuantity(){
+	console.log("decrease");
+}
+
+
+
+
 
 
 

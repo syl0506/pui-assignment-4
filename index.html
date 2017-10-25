@@ -14,8 +14,8 @@
 </head>
 <body onload="OnInit()">
 
-	<div class="header" >
-		<ul id = "nav">
+	<div id="header" >
+		<ul class = "nav">
 			<li><a href="javascript:void(0);" onClick="OnClickPannel('cat')">FOR CATS</a></li>
 			<li><a href="javascript:void(0);" onClick="OnClickPannel('dog')">FOR DOGS</a></li>
 			<li><a href="javascript:void(0);" onClick="OnClickPannel('Home')">
@@ -25,16 +25,41 @@
 
             <li><a href="javascript:void(0);" onClick="OnClickPannel('myCart')">MY CART</a></li>
             <span id = "itemCount">0</span>
+            <span id = "wishListCount">0</span>
+            <span id = "wishListCountIcon"><img id ="wishIcon" src="images/wishIcon.png"  /></span>
 
 		</ul>
 	 </div>
+
+	 <div id ="wishListModal" class="modal">
+		<div class = "modalContent">
+			<span class = "close">&times;</span>
+			<h1>Wish List</h1>
+			<div class="wishContainer">
+            <table id ="wishTable" cellpadding="10">
+
+            <tr>
+                <td width = "15%">ADDED ITEM</td>
+                <td></td>
+                <td>SIZE</td>
+                <td>COLOR</td>
+                <td>QUANTITY</td>
+                <td>PRICE</td>
+                <td width="11%"></td>
+            </tr>
+
+            </table>
+            </div>
+
+		</div>
+	</div>
 
 	<!-- Landing page -->
 	 <div id ="landing" class="panel" >
 	 <!--image : https://caninespirit.com.au/products/ruffwear-approach-pack-dog-pack-->
 		<img src="images/background.png" width=100% />
 		<div id ="mainText">
-            <h1> TAKE AN</br> <span style="color: #FF8D48"> ADVENTURE </span> </br> WITH YOUR </br> BUDDY</h1>
+            <h1> TAKE AN</br> <span id = "landingText" > ADVENTURE </span> </br> WITH YOUR </br> BUDDY</h1>
 			 <button id = "mainBtn" onclick="javascript:void(0)">SHOP NOW</button>
 
         </div>
@@ -165,12 +190,12 @@
 			<table class ="itemTable" cellpadding="10">
 
 			<tr>
-				<td width="50%" style="text-align:right">
+				<td>
 					<img src="images/store.jpg" width=100% />
 					<!--image : http://altdaily.com/wp-content/uploads/2016/03/Muddy-Paws-Downtown.jpg-->
 				</td>
 
-				<td width="50%" id="infoBox">
+				<td id="infoBox">
 					<h2>muddypaw Downtown</h2><br><br>
 					<h4>745 Forward Avenue, Pittsburgh, PA, 15232
 					<br><br>412-234-4212
@@ -188,26 +213,26 @@
 	<div id ="details" class="panel">
 		<table class ="detailTable">
 
-			<tr style="text-align:center">
-				<TD colspan=2>
+			<tr id = "crumbs">
+				<td colspan=2>
 					<P>
 					Home / For Cat / Body Harness
 					</P>
-				</TD>
+				</td>
 			</tr>
 
 			<tr>
-				<td width="50%" style="text-align:right">
-					<img id = "productImg" src="images/Strawberry.png" width=100% />
+				<td id = "productImg">
+					<img src="images/Strawberry.png" width=100% />
 				</td>
 
-				<td width="50%" id="infoBox">
+				<td id="infoBox">
 					<h2>BODY HARNESS</h2>
 					<h4>$ 12.99</h4>
 
 					<h4><br>Choose Size</h4>
 
-					<div style="display:inline-block; vertical-align: middle; ">
+					<div id = "sizeButtons">
 						<button class="sizeButton">Tiny</button>
 						<button class="sizeButton">S</button>
 						<button class="sizeButton">M</button>
@@ -217,24 +242,37 @@
 
 					<h4><br>Choose Color<br></h4>
 
-					<div style="display:inline-block; vertical-align: middle;">
-						<button id = "Strawberry" class="colorButton" style=" background-color:#F84445;"></button>
-						<button id = "Blackberry" class="colorButton" style=" background-color:black;"></button>
-						<button id = "Crazyberry" class="colorButton" style=" background-color:#AD36FF;"></button>
-						<button id = "Camouflage" class="colorButton" style=" background-color:#2F7300;"></button>
-						<button id = "Night Moon" class="colorButton" style=" background-color:#160093;"></button>
-						<button id = "Fire Orange" class="colorButton" style=" background-color:#FF5C00;"></button>
-                        <br><br>
+					<div id = "colorButtons">
+						<button id = "Strawberry" class="colorButton"></button>
+						<button id = "Blackberry" class="colorButton"></button>
+						<button id = "Crazyberry" class="colorButton"></button>
+						<button id = "Camouflage" class="colorButton"></button>
+						<button id = "NightMoon" class="colorButton"></button>
+						<button id = "FireOrange" class="colorButton"></button>
+                        <br>
                     </div>
 
 					<h5 id = "colorText">Strawberry</h5>
 
+
+					<h4><br>Choose Quantity<br></h4>
+
+
+					<div id = "quantity">
+						<div class="numberCircle" id ="decrease" onclick="changeQuantity()"><span> - </span></div>
+						<div id = "quantityNum"> 1 </div>
+						<div class = "numberCircle" id ="increase" onclick="changeQuantity()"> <span> + </span></div>
+
+					</div>
+					<br>
+
 					<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
+					<button id ="addToWishBtn" onclick="addToWishList()"> Add to WishList</button>
 
 				</td>
 			</tr>
 
-			<tr style="text-align:left">
+			<tr>
 				<TD colspan=2>
 					<div id="dscBox">
 
@@ -258,7 +296,7 @@
 			<table class ="itemTable" cellpadding="10">
 
 				<tr>
-				<td>
+				<td colspan=2>
 				<h2>SEE MORE PRODUCTS</h2>
 				</td>
 				</tr>
@@ -317,7 +355,7 @@
     <div id ="myCart" class="panel">
         <img src=" images/mycart.png" width=100%>
         <div class="cartContainer">
-            <table id ="cartTable" cellpadding="10" width = 90% style = "display : none">
+            <table id ="cartTable" cellpadding="10">
 
             <tr>
                 <td width = "15%">ADDED ITEM</td>
@@ -330,16 +368,16 @@
             </tr>
 
             </table>
-            <img id = "emptyCart" src=" images/emptyCart.png" width=60% style = "display : none">
+            <img id = "emptyCart" src=" images/emptyCart.png">
         </div>
         <div>
-            <button id="shoppingBtn" onclick="javascript:void(0)" style = "display : none">CONTINUE SHOPPING</button>
-            <button id="checkoutBtn" onclick="javascript:void(0)" style = "display : none">CHECKOUT</button>
+            <button id="shoppingBtn" onclick="javascript:void(0)">CONTINUE SHOPPING</button>
+            <button id="checkoutBtn" onclick="javascript:void(0)">CHECKOUT</button>
         </div>
     </div>
 
 	<div class='footer'>
-		<div id="subscriptionBox" style="float:left">
+		<div id="subscriptionBox">
 			<div >
 				<h4>
 				SIGN UP FOR FUTURE PRODUCT UPDATES!
@@ -348,24 +386,28 @@
 
 			<div >
 
-				<form style="margin-left=5%;">
-					<input type="text" name="LastName" value="Enter your email address" style ="width: 70%;"><input type="submit" value="Submit" >
+				<form>
+					<input type="text" name="LastName" value="Enter your email address">
+					<input type="submit" value="Submit" >
 				</form>
 			</div>
 		</div>
 
 		<div class="extraInfo">
-			<ul id = "nav">
+			<ul class = "nav">
 				<li><p>CONNECT: </p></li>
-				<li><a href="javascript:void(0);"><img src="images/facebook.png" width="30px"></a></li>
-				<li><a href="javascript:void(0);"><img src="images/pinterest2.png" width="30px"></a></li>
-				<li><a href="javascript:void(0);"><img src="images/instagram.png" width="65px"></a></li>
+				<li><a href="https://www.facebook.com/" target="_blank">
+				<img src="images/facebook.png" width="30px"></a></li>
+				<li><a href="https://www.pinterest.co.kr/" target="_blank">
+				<img src="images/pinterest2.png" width="30px"></a></li>
+				<li><a href="https://www.instagram.com/" target="_blank">
+				<img src="images/instagram.png" width="65px"></a></li>
 
 			</ul>
 		</div>
 
 		<div class="extraInfo">
-			<ul id = "nav">
+			<ul class = "nav">
 				<li><a href="javascript:void(0);">CONTACT</a></li>
 				<li><a href="javascript:void(0);">PRIVACY</a></li>
 				<li><a href="javascript:void(0);">TERMS</a></li>
@@ -373,10 +415,11 @@
 			</ul>
 		</div>
 
-		<div id = "rights" style="text-align:center" >
+		<div id = "rights">
 			<p>@ 2017 Muddy Paws adventure Gear Corporation. All Rights Reserved.</p>
 		</div>
 	</div>
+
 
 </body>
 
