@@ -10,7 +10,9 @@
 <link href="https://linotype.com/1245613/avenir-family.html" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-<script type="text/javascript" src="index.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body onload="OnInit()">
 
@@ -36,20 +38,19 @@
 			<span class = "close">&times;</span>
 			<h1>Wish List</h1>
 			<div class="wishContainer">
-            <table id ="wishTable" cellpadding="10">
+			<table id ="wishTable" cellpadding="10">
 
-            <tr>
-                <td width = "15%">ADDED ITEM</td>
-                <td></td>
-                <td>SIZE</td>
-                <td>COLOR</td>
-                <td>QUANTITY</td>
-                <td>PRICE</td>
-                <td width="11%"></td>
-            </tr>
+		<tr>
+			<td width = "15%">ADDED ITEM</td>
+			<td></td>
+			<td>SIZE</td>
+			<td>COLOR</td>
+			<td>PRICE</td>
+			<td width="11%"></td>
+		</tr>
 
-            </table>
-            </div>
+			</table>
+			</div>
 
 		</div>
 	</div>
@@ -259,9 +260,9 @@
 
 
 					<div id = "quantity">
-						<div class="numberCircle" id ="decrease" onclick="changeQuantity()"><span> - </span></div>
+						<div class="numberCircle" id ="decrease" onclick="changeQuantity(this)"><span> - </span></div>
 						<div id = "quantityNum"> 1 </div>
-						<div class = "numberCircle" id ="increase" onclick="changeQuantity()"> <span> + </span></div>
+						<div class = "numberCircle" id ="increase" onclick="changeQuantity(this)"> <span> + </span></div>
 
 					</div>
 					<br>
@@ -419,6 +420,7 @@
 			<p>@ 2017 Muddy Paws adventure Gear Corporation. All Rights Reserved.</p>
 		</div>
 	</div>
+<script type="text/javascript" src="index.js"></script>
 
 
 </body>

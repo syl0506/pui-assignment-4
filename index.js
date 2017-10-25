@@ -11,6 +11,7 @@ var currentColor = "Strawberry";
 var currentSize = "Tiny"
 var itemPrice = 0;
 var totalPrice = 0;
+var quantity = 1;
 
 
 
@@ -349,9 +350,8 @@ function createWishList(index){
 	var itemN = wishRow.insertCell(1);
 	var itemS = wishRow.insertCell(2);
 	var itemC = wishRow.insertCell(3);
-	var itemQ = wishRow.insertCell(4);
-	var itemP = wishRow.insertCell(5);
-	var itemD = wishRow.insertCell(6);
+	var itemP = wishRow.insertCell(4);
+	var itemD = wishRow.insertCell(5);
 
 	itemI.appendChild(itemImage);
 	itemN.innerHTML = wishItems[index].itemName;
@@ -376,8 +376,15 @@ function deleteWishItems(index, wishTable){
 
 }
 
-function changeQuantity(){
-	console.log("decrease");
+function changeQuantity(element){
+	if (element.id === "decrease" && document.getElementById("quantityNum").innerHTML>1){
+		quantity--;
+	}
+	if (element.id === "increase" && document.getElementById("quantityNum").innerHTML<10){
+		quantity++;
+	}
+
+	document.getElementById("quantityNum").innerHTML = quantity;
 }
 
 
