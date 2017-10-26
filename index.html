@@ -61,7 +61,7 @@
 		<img src="images/background.png" width=100% />
 		<div id ="mainText">
             <h1> TAKE AN</br> <span id = "landingText" > ADVENTURE </span> </br> WITH YOUR </br> BUDDY</h1>
-			 <button id = "mainBtn" onclick="javascript:void(0)">SHOP NOW</button>
+			 <button id = "mainBtn" onclick="OnClickPannel('cat')">SHOP NOW</button>
 
         </div>
 	 </div>
@@ -70,7 +70,7 @@
 	<div id ="forCats" class="panel">
 	<!--Cat_image : https://thumbs.dreamstime.com/t/group-cats-26433825.jpg-->
 
-		<img src="images/ForCats.png" width=100% />
+		<img class = "mainImg" src="images/ForCats.png" width=100% />
 
 		<div class="itemContainer">
 			<table class ="itemTable" cellpadding="10">
@@ -84,6 +84,8 @@
 							<h3>$ 12.99</h3>
 							<br>
 							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
+
 						</div>
 					</td>
 					<td>
@@ -95,6 +97,8 @@
 							<h3>$ 40.99</h3>
 							<br>
 							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
+
 						</div>
 					</td>
 					<td>
@@ -106,6 +110,8 @@
 							<h3>$ 12.99</h3>
 							<br>
 							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
+
 						</div>
 					</td>
 					<td>
@@ -117,6 +123,8 @@
 							<h3>$ 9.99</h3>
 							<br>
 							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
+
 						</div>
 					</td>
 
@@ -128,10 +136,11 @@
 	<!-- For dogs -->
 	<div id ="forDogs" class="panel">
 	<!--Dog_image : https://www.jimsdogwash.net.au/images/slider/group%20of%20dogs.jpg-->
-		<img src="images/ForDogs.png" width=100% />
+		<img class = "mainImg" src="images/ForDogs.png" width=100% />
 
 		<div class="itemContainer">
-			<table class ="itemTable" cellpadding="10">
+
+			<table class ="itemTable"  cellpadding="10">
 				<tr>
 					<td>
 						<div class="itemBox">
@@ -142,18 +151,20 @@
 							<h3>$ 12.99</h3>
 							<br>
 							<button id="detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
 
 						</div>
 					</td>
 					<td>
 						<div class="itemBox">
 						<!--image : https://www.terapeak.com/worth/whistle-gps-pet-tracker-dog-cat-tracker-collar-attachment/182473902185/-->
-							<img src="images/gpstracker.png" />
+							<img src="images/gpstracker_dog.png" />
 							<p><br></p>
 							<h3>GPS TRACKER</h3>
 							<h3>$ 12.99</h3>
 							<br>
 							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
 						</div>
 					</td>
 					<td>
@@ -165,17 +176,19 @@
 							<h3>$ 12.99</h3>
 							<br>
 							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
 						</div>
 					</td>
 					<td>
 						<div class="itemBox">
 						<!--image : http://www.allaboutsnouts.com/shop/training/popware-pooch-pouch-treat-holder-purple-pink-green-blue/-->
-							<img src="images/foodpouch.png" />
+							<img src="images/foodpouch_dog.png" />
 							<p><br></p>
 							<h3>FOOD POUCH</h3>
-							<h3>$ 12.99</h3>
+							<h3>$ 14.99</h3>
 							<br>
 							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
 						</div>
 					</td>
 
@@ -186,7 +199,7 @@
 
 	 	 	<!-- For Store -->
 	<div id ="location" class="panel">
-		<img src=" images/store_location.png" width=100% />
+		<img class = "mainImg" src=" images/store_location.png" width=100% />
 		<div class="itemContainer">
 			<table class ="itemTable" cellpadding="10">
 
@@ -294,7 +307,9 @@
 		</table>
 
 		<div class="itemContainer">
-			<table class ="itemTable" cellpadding="10">
+			<a id = "carouselRight" onclick="moveCarousel()"> > </a>
+			<a id = "carouselLeft" onclick="moveCarousel()"> < </a>
+			<table id = "carousel1" class ="itemTable" cellpadding="10">
 
 				<tr>
 				<td colspan=2>
@@ -311,17 +326,19 @@
 							<h3>$ 12.99</h3>
 							<br>
 							<button id="detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
 
 						</div>
 					</td>
 					<td>
 						<div class="itemBox">
-							<img src="images/gpstracker.png" />
+							<img src="images/gpstracker_dog.png" />
 							<p><br></p>
 							<h3>GPS TRACKER</h3>
-							<h3>$ 12.99</h3>
+							<h3>$ 40.99</h3>
 							<br>
 							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
 						</div>
 					</td>
 					<td>
@@ -332,21 +349,87 @@
 							<h3>$ 12.99</h3>
 							<br>
 							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
 						</div>
 					</td>
 					<td>
 						<div class="itemBox">
-							<img src="images/foodpouch.png" />
+							<img src="images/foodpouch_dog.png" />
 							<p><br></p>
 							<h3>FOOD POUCH</h3>
+							<h3>$ 9.99</h3>
+							<br>
+							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+
+
+			<table id = "carousel2" class="itemTable" cellpadding="10">
+				<tr>
+					<td colspan=2>
+					<h2>SEE MORE PRODUCTS</h2>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="itemBox">
+						<!--image : https://www.gfpet.com/coolfresh-1/cat-nylon-harness-->
+							<img src="images/harness.png" />
+							<p><br></p>
+							<h3>BODY HARNESS</h3>
 							<h3>$ 12.99</h3>
 							<br>
 							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
+
+						</div>
+					</td>
+					<td>
+						<div class="itemBox">
+						<!--image : https://www.terapeak.com/worth/whistle-gps-pet-tracker-dog-cat-tracker-collar-attachment/182473902185/-->
+							<img src="images/gpstracker.png" />
+							<p><br></p>
+							<h3>GPS TRACKER</h3>
+							<h3>$ 40.99</h3>
+							<br>
+							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
+
+						</div>
+					</td>
+					<td>
+						<div class="itemBox">
+						<!--image : https://ae01.alicdn.com/kf/HTB10psQOXXXXXafXVXXq6xXFXXXs/Kids-Cartoon-font-b-Cat-b-font-Stainless-Steel-font-b-Bottle-b-font-font-b.jpg-->
+							<img src="images/water.png" />
+							<p><br></p>
+							<h3>WATER BOTTLE</h3>
+							<h3>$ 12.99</h3>
+							<br>
+							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
+
+						</div>
+					</td>
+					<td>
+						<div class="itemBox">
+						<!--image : http://www.allaboutsnouts.com/shop/training/popware-pooch-pouch-treat-holder-purple-pink-green-blue/-->
+							<img src="images/foodpouch.png" />
+							<p><br></p>
+							<h3>FOOD POUCH</h3>
+							<h3>$ 9.99</h3>
+							<br>
+							<button id= "detailBtn" onclick="OnClickPannel('Details')">DETAILS</button>
+							<button id ="addToCartBtn" onclick="addToCart()"> Add to cart</button>
+
 						</div>
 					</td>
 
 				<tr>
 			</table>
+
 		</div>
 	</div>
 
@@ -354,7 +437,7 @@
 
      <!-- For Cart -->
     <div id ="myCart" class="panel">
-        <img src=" images/mycart.png" width=100%>
+        <img class = "mainImg" src=" images/mycart.png" width=100%>
         <div class="cartContainer">
             <table id ="cartTable" cellpadding="10">
 
@@ -372,7 +455,7 @@
             <img id = "emptyCart" src=" images/emptyCart.png">
         </div>
         <div>
-            <button id="shoppingBtn" onclick="javascript:void(0)">CONTINUE SHOPPING</button>
+            <button id="shoppingBtn" onclick="OnClickPannel('Details')">CONTINUE SHOPPING</button>
             <button id="checkoutBtn" onclick="javascript:void(0)">CHECKOUT</button>
         </div>
     </div>

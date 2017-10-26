@@ -9,6 +9,7 @@ body{
 
 button:focus {outline:0;}
 
+
 .panel,
 #header {
 
@@ -175,6 +176,9 @@ button:focus {outline:0;}
     font-weight: 600;
 }
 
+.mainImg {
+    margin-top: -50px;
+}
 /* Item Details*/
 
 #itemCount {
@@ -190,10 +194,43 @@ button:focus {outline:0;}
     text-align: center;
 }
 
+#carousel2{
+    display: none;
+}
+
+#carouselLeft{
+    font-size: 36px;
+    position: absolute;
+    top: 1260px;
+    left: 67px;
+    background-color: #FF8D48;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: 800;
+    color: white;
+}
+
+#carouselRight{
+    font-size: 36px;
+    position: absolute;
+    top: 1260px;
+    left: 1300px;
+    background-color: #FF8D48;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: 800;
+    color: white;
+}
+
+
 .itemContainer{
     background:#f9f9f9;
-    padding-top:4%;
-    padding-bottom:4%;
+    padding-top:2%;
+    padding-bottom:2%;
 }
 
 .itemTable{
@@ -303,28 +340,29 @@ button:focus {outline:0;}
 }
 #detailBtn{
 
-	color:#FF8D48;
+    color: #FF8D48;
     font-size: 16px;
     margin-left: 13%;
     margin-right: 13%;
     padding: 13px 50px;
-	border:1px solid #FF8D48;
-	background-color:white;
-	margin-bottom: 20%;
-    margin-top: 15%;
+    border: 1px solid #FF8D48;
+    background-color: white;
+    margin-bottom: -3%;
+    margin-top: 5%;
 }
 
 #addToCartBtn{
     background-color: #FF8D48;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 15px 40px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     font-weight: 600;
     margin-top: 20px;
+    margin-bottom: 17px;
 
 }
 

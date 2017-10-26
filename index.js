@@ -16,11 +16,12 @@ var quantity = 1;
 
 
 
-function CurrentItem(itemName, color, size, price){
+function CurrentItem(itemName, color, size, price, quantity){
 	this.itemName = itemName;
 	this.color = color;
 	this.size = size;
 	this.price = price;
+	this.quantity = quantity;
 }
 
 
@@ -30,7 +31,7 @@ function addToCart(){
 	document.getElementById("itemCount").innerHTML = totalItems;
 	document.getElementById("itemCount").style.display = "block";
 
-	cartItems.push(new CurrentItem(itemName, currentColor, currentSize, itemPrice));
+	cartItems.push(new CurrentItem(itemName, currentColor, currentSize, itemPrice, quantity));
 
 }
 
@@ -46,9 +47,8 @@ function addToWishList(){
 
 
 
-
 function OnInit(){
-	OnClickPannel("Details");
+	OnClickPannel("Home");
 	loadModal();
 
 
@@ -83,6 +83,8 @@ function OnClickPannel(option){
 		document.getElementById("details").style.display = "block";
 		itemName = "Body Harness";
 		itemPrice = 12.99;
+		quantity = 1;
+		document.getElementById("quantityNum").innerHTML = quantity;
 
 
 		/*-- change size and text of color button when selected */
@@ -191,7 +193,7 @@ function resetCart(cartTable){
 		totalPrice = 0;
 		for (var i = 0; i < cartItems.length; i++){
 			createCart(i);
-			totalPrice += cartItems[i].price;
+			totalPrice += cartItems[i].price * cartItems[i].quantity ;
 		}
 	addSubTotal(totalPrice);
 	}
@@ -233,6 +235,7 @@ function createCart(index){
 	itemS.innerHTML = cartItems[index].size;
 	itemC.innerHTML = cartItems[index].color;
 	itemP.innerHTML = "$" + itemPrice;
+	itemQ.innerHTML = cartItems[index].quantity;
 	itemD.appendChild(deleteButton);
 	itemD.style.textAlign = "right";
 
@@ -385,6 +388,20 @@ function changeQuantity(element){
 	}
 
 	document.getElementById("quantityNum").innerHTML = quantity;
+}
+
+function moveCarousel(){
+	var carousel1 = document.getElementById("carousel1");
+	var carousel2 = document.getElementById("carousel2");
+	if (carousel1.style.display === "none"){
+		carousel1.style.display = "block";
+		carousel2.style.display = "none";
+	}
+	else {
+		carousel1.style.display = "none";
+		carousel2.style.display = "block";
+
+	}
 }
 
 
