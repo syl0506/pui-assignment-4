@@ -99,7 +99,9 @@ function OnClickPannel(option){
 
 
     		var productImg = document.getElementById("productImg");
+
     		productImg.src = "images/"+ button.id + ".png"
+
 
 			}
 
