@@ -52,8 +52,15 @@ function OnClickPannel(option){
 		document.getElementById("details").style.display = "block";
 		itemName = "Body Harness";
 		itemPrice = 12.99;
+		currentColor = "Strawberry";
+		currentSize = "Tiny"
+		itemPrice = 12.99;
 		quantity = 1;
 		document.getElementById("quantityNum").innerHTML = quantity;
+		document.getElementById("productImg").src = "images/"+ currentColor+ ".png"
+
+
+
 
 
 		/*-- change size and text of color button when selected */
