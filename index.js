@@ -14,39 +14,7 @@ var totalPrice = 0;
 var quantity = 1;
 
 
-
-
-function CurrentItem(itemName, color, size, price, quantity){
-	this.itemName = itemName;
-	this.color = color;
-	this.size = size;
-	this.price = price;
-	this.quantity = quantity;
-}
-
-
-function addToCart(){
-	totalItems++;
-
-	document.getElementById("itemCount").innerHTML = totalItems;
-	document.getElementById("itemCount").style.display = "block";
-
-	cartItems.push(new CurrentItem(itemName, currentColor, currentSize, itemPrice, quantity));
-
-}
-
-
-function addToWishList(){
-	wishItemsNum++;
-
-	document.getElementById("wishListCount").innerHTML = wishItemsNum;
-	document.getElementById("wishListCount").style.display = "block";
-
-	wishItems.push(new CurrentItem(itemName, currentColor, currentSize, itemPrice));
-}
-
-
-
+/* Loading Landing Page and Modal*/
 function OnInit(){
 	OnClickPannel("Home");
 	loadModal();
@@ -54,6 +22,7 @@ function OnInit(){
 
 }
 
+/* Hide all display*/
 function HideAllPanel(){
 	var panels = document.getElementsByClassName("panel");
 	for(var i =0; i < panels.length; i++){
@@ -61,9 +30,9 @@ function HideAllPanel(){
 	}
 }
 
+/* Display certain div depending on what the user clicks on the nav*/
 function OnClickPannel(option){
-	 window.scrollTo(0, 0);
-
+	window.scrollTo(0, 0);
 
 	HideAllPanel();
 
@@ -116,6 +85,7 @@ function OnClickPannel(option){
 				changeColorSize(this, selectedButton, colorText);
 			}
 		}
+		/*-- set first button selected as default */
 		document.getElementById("Strawberry").setAttribute("class", "colorButton_s")
 
 		/*-- change color of size button when selected */
@@ -133,12 +103,12 @@ function OnClickPannel(option){
 
 		var sizeButtons = document.getElementsByClassName('sizeButton');
 
-
+		/*-- reset all size buttons */
 		for (var i = 0; i<sizeButtons.length; i++){
 				sizeButtons[i].style.color = "#FF8D48";
 				sizeButtons[i].style.backgroundColor = "white";
 			}
-
+		/*-- set first button selected as default */
 		sizeButtons[0].style.color = "white";
 		sizeButtons[0].style.backgroundColor = "#FF8D48";
 
@@ -159,20 +129,13 @@ function OnClickPannel(option){
 		var emptyCart = document.getElementById("emptyCart");
 		var cartTable = document.getElementById("cartTable");
 
-
 		resetCart(cartTable);
 
 
 	}
 }
-
-function deleteCart(cartTable){
-	while(cartTable.rows.length>1){
-		cartTable.deleteRow(1);
-	}
-
-}
-
+/* If there is no Item in the cart display empty screen, if not
+display cart table */
 function resetCart(cartTable){
 
 	var continueBtn = document.getElementById("shoppingBtn");
@@ -191,18 +154,25 @@ function resetCart(cartTable){
 		emptyCart.style.display = "none";
 		continueBtn.style.display = "inline-block";
 		checkoutBtn.style.display = "inline-block";
+		/* Delete all cart table */
 		deleteCart(cartTable);
 		totalPrice = 0;
+		/* Create items in the table based on what is in the cart list */
 		for (var i = 0; i < cartItems.length; i++){
 			createCart(i);
 			totalPrice += cartItems[i].price * cartItems[i].quantity ;
 		}
 	addSubTotal(totalPrice);
 	}
-
-
 }
 
+/* Delete all cart except title row */
+function deleteCart(cartTable){
+	while(cartTable.rows.length>1){
+		cartTable.deleteRow(1);
+	}
+}
+/* Create cart table based on what is in the cart list */
 function createCart(index){
 	var cartTable = document.getElementById("cartTable");
 	var cartRow = cartTable.insertRow(index+1);
@@ -217,6 +187,8 @@ function createCart(index){
 	deleteButton.style.width = "100px";
 	deleteButton.style.height = "100px";
 	deleteButton.style.backgroundColor = "white";
+
+	/* Add delete button for each item */
 
 	deleteButton.onclick = function(){deleteItems(index, cartTable)};
 
@@ -243,8 +215,11 @@ function createCart(index){
 
 }
 
+/* Delete Item from list if user deletes it in the cart. */
 function deleteItems(index, cartTable){
 	cartItems.splice(index, 1);
+
+	/* Reset to recreate new table based on modified list of items */
 	resetCart(cartTable);
 	totalItems --;
 	if (totalItems > 0){
@@ -256,6 +231,7 @@ function deleteItems(index, cartTable){
 
 }
 
+/* Add subTotal row to the cart table */
 function addSubTotal(totalPrice){
 	var cartTable = document.getElementById("cartTable");
 	var totalRow = cartTable.insertRow(-1);
@@ -273,6 +249,7 @@ function addSubTotal(totalPrice){
 
 
 }
+/* Create Wishlist Modal */
 function loadModal(){
 
 	var modal = document.getElementById('wishListModal');
@@ -314,22 +291,24 @@ function loadModal(){
 	};
 }
 
+/* Delete the wish list table and update based on new wish list */
 function resetWishList(wishTable){
 
 	deleteWishCart(wishTable);
 
     for(var i = 0; i<wishItems.length; i++){
     	createWishList(i);
-}
+	}
 }
 
+/* Delete the wish list table */
 function deleteWishCart(wishTable){
 	while(wishTable.rows.length>1){
 		wishTable.deleteRow(1);
 	}
-
 }
 
+/* Create wish table based on all the items in the wish list */
 function createWishList(index){
 	var wishTable = document.getElementById("wishTable");
 	var wishRow = wishTable.insertRow(index+1);
@@ -368,6 +347,9 @@ function createWishList(index){
 
 }
 
+//Delete wishList items from list if user clicks delete in the wishlist
+//If there is no items in the wishlist, do not display number
+
 function deleteWishItems(index, wishTable){
 	wishItems.splice(index, 1);
 	resetWishList(wishTable);
@@ -375,11 +357,14 @@ function deleteWishItems(index, wishTable){
 	if (wishItemsNum > 0){
 		document.getElementById("wishListCount").innerHTML = wishItemsNum;
 	}
+	//If there is no items in the wishlist, do not display number
 	else {
 		document.getElementById("wishListCount").style.display = "none";
 	}
 
 }
+
+//Change Quantity if user clicks increase/decrese. Number set between 1 - 10
 
 function changeQuantity(element){
 	if (element.id === "decrease" && document.getElementById("quantityNum").innerHTML>1){
@@ -392,6 +377,7 @@ function changeQuantity(element){
 	document.getElementById("quantityNum").innerHTML = quantity;
 }
 
+//Moves the carousel upon clicking on the left/right button
 function moveCarousel(){
 	var carousel1 = document.getElementById("carousel1");
 	var carousel2 = document.getElementById("carousel2");
@@ -406,6 +392,37 @@ function moveCarousel(){
 	}
 }
 
+
+//Creates a current items that is added to cart
+function CurrentItem(itemName, color, size, price, quantity){
+	this.itemName = itemName;
+	this.color = color;
+	this.size = size;
+	this.price = price;
+	this.quantity = quantity;
+}
+
+//Push new Current Items to cartlist
+function addToCart(){
+	totalItems++;
+
+	document.getElementById("itemCount").innerHTML = totalItems;
+	document.getElementById("itemCount").style.display = "block";
+
+	cartItems.push(new CurrentItem(itemName, currentColor, currentSize, itemPrice, quantity));
+
+}
+
+
+//Push new Current Items to wishList
+function addToWishList(){
+	wishItemsNum++;
+
+	document.getElementById("wishListCount").innerHTML = wishItemsNum;
+	document.getElementById("wishListCount").style.display = "block";
+
+	wishItems.push(new CurrentItem(itemName, currentColor, currentSize, itemPrice));
+}
 
 
 

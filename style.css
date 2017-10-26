@@ -20,6 +20,12 @@ button:focus {outline:0;}
     left: 0;
 }
 
+.panel{
+    display: block;
+    z-index:1;
+    pointer-events:auto;
+}
+
 /* WishtList Modal */
 
 .modal {
@@ -60,7 +66,6 @@ button:focus {outline:0;}
 
 }
 
-/* The Close Button */
 .close {
     color: #aaaaaa;
     float: right;
@@ -142,11 +147,7 @@ button:focus {outline:0;}
     color: #fff;
 }
 
-.panel{
-	display: block;
-	z-index:1;
-	pointer-events:auto;
-}
+
 
 #landing{
 	margin-bottom: 10%;
@@ -181,6 +182,10 @@ button:focus {outline:0;}
 }
 /* Item Details*/
 
+#crumbs{
+    text-align : center;
+}
+
 #itemCount {
     display: none;
     position: absolute;
@@ -197,6 +202,8 @@ button:focus {outline:0;}
 #carousel2{
     display: none;
 }
+
+/* Carousel buttons */
 
 #carouselLeft{
     font-size: 36px;
@@ -240,103 +247,31 @@ button:focus {outline:0;}
 }
 
 
-
-.cartContainer{
-    background:"white";
-}
-
-#emptyCart{
-    margin-left: 20%;
-    margin-right: 20%;
-    width: 60%;
-    display : none;
-}
-
-#cartTable{
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 2%;
-    width : 90%;
-    display : none;
-
-}
-
-.numberCircle {
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    font-size: 32px;
-    border: 2px solid #FF8D48;
-}
-.numberCircle span {
-    text-align: center;
-    line-height: 34px;
-    font-size: 26px;
-    display: block;
-    color: #FF8D48;
-}
-#cartTable td, th{
-    border-bottom: 1px solid #ddd;
-}
-
-#quantity{
-    display: inline-flex;
-    width: 70%;
-    margin-top: 3%;
-    margin-bottom: 1%;
-}
-
-#quantityNum{
-    line-height: 40px;
-    margin-right: 10%;
-    margin-left: 10%;
-    font-size: 21px;
-}
-
-#wishTable{
-    margin-top: 2%;
-    width : 100%;
-}
-
-#wishTable td, th{
-    border-bottom: 1px solid #ddd;
-}
-
-#wishListCount {
-    position: fixed;
-    display: none;
-    top: 56px;
-    right: 51px;
-    z-index: 3;
-    color: white;
-    font-size: 14px;
-}
-
 #colorText{
     margin-top: 2%;
     font-weight: 200;
 }
 
 .itemBox{
-	background:white;
-	text-align:center;
+    background:white;
+    text-align:center;
     font-size: 12px
 }
 
 .itemBox img{
-	max-width:100%;
-	max-height:80%;
-	object-fit: contain;
+    max-width:100%;
+    max-height:80%;
+    object-fit: contain;
 }
 
 .itemBox h3,.itemBox button{
-	 position: relative;
+     position: relative;
 }
 
 #details{
-	margin-top: 13%;
+    margin-top: 13%;
 
-	margin-bottom: 5%;
+    margin-bottom: 5%;
 }
 #detailBtn{
 
@@ -402,19 +337,19 @@ button:focus {outline:0;}
 }
 
 .detailTable{
-	width: 80%;
-	height: 80%;
-	margin-left: 10%;
-	margin-right: 10%;
+    width: 80%;
+    height: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
     margin-bottom: 10%;
 }
 .detailTable td{
-	padding-top: .2em;
+    padding-top: .2em;
     padding-bottom: .2em;
 }
 
 .sizeButton{
-	border: 2px solid #FF8D48;
+    border: 2px solid #FF8D48;
     background-color: white;
     font-size: 16px;
     margin-top: 5%;
@@ -461,8 +396,64 @@ button:focus {outline:0;}
 }
 
 #infoBox{
-	padding-left: 50px;
+    padding-left: 50px;
     width: 50%;
+}
+
+
+
+/* My Cart */
+
+.cartContainer{
+    background:"white";
+}
+
+#emptyCart{
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 60%;
+    display : none;
+}
+
+#cartTable{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    width : 90%;
+    display : none;
+
+}
+
+.numberCircle {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 32px;
+    border: 2px solid #FF8D48;
+}
+.numberCircle span {
+    text-align: center;
+    line-height: 34px;
+    font-size: 26px;
+    display: block;
+    color: #FF8D48;
+}
+#cartTable td, th{
+    border-bottom: 1px solid #ddd;
+}
+
+#quantity{
+    display: inline-flex;
+    width: 70%;
+    margin-top: 3%;
+    margin-bottom: 1%;
+}
+
+#quantityNum{
+    line-height: 40px;
+    margin-right: 10%;
+    margin-left: 10%;
+    font-size: 21px;
 }
 
 #shoppingBtn {
@@ -492,9 +483,32 @@ button:focus {outline:0;}
     display: none;
 }
 
-#crumbs{
-    text-align : center;
+
+
+
+/* My Wish List */
+
+#wishTable{
+    margin-top: 2%;
+    width : 100%;
 }
+
+#wishTable td, th{
+    border-bottom: 1px solid #ddd;
+}
+
+#wishListCount {
+    position: fixed;
+    display: none;
+    top: 56px;
+    right: 51px;
+    z-index: 3;
+    color: white;
+    font-size: 14px;
+}
+
+
+
 
 
 /*Footer*/
