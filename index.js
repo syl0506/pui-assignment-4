@@ -6,10 +6,10 @@ var totalItems= 0;
 var wishItemsNum = 0;
 var cartItems = [];
 var wishItems =[];
-var itemName;
+var itemName = "Body Harness";
 var currentColor = "Strawberry";
 var currentSize = "Tiny"
-var itemPrice = 0;
+var itemPrice = 12.99;
 var totalPrice = 0;
 var quantity = 1;
 

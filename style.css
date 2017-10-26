@@ -1,10 +1,10 @@
 * {
     margin : 0;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Avenir';
 }
 
 body{
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Avenir';
 }
 
 button:focus {outline:0;}
